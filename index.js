@@ -77,8 +77,8 @@ app.post('/registration',(req,res)=>{
 })
 
 //to get profile
-app.get('/getprofile',(req,res)=>{
-    dataService.getprofile()
+app.get('/getprofile/:mail',(req,res)=>{
+    dataService.getprofile(req.params.mail)
     .then(
         result=>{
             res.status(result.statusCode).json(result)

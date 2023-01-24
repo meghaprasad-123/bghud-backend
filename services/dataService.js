@@ -93,7 +93,7 @@ const registration=(username,mail,qualification,number,place,course,mode)=>{
 
 
 const getprofile=()=>{
-    return db.Profile.findOne({mail})
+    return db.Profile.find()
     .then((result)=>{
         if(result){
             return{
