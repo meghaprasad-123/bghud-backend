@@ -1,11 +1,11 @@
 const express = require('express')
 
-const cors = require('cors')
+// const cors = require('cors')
 
 
 const dataService=require('./services/dataService')
 
-// const cors = require('cors')
+const cors = require('cors')
 
 const jwt=require('jsonwebtoken')
 
@@ -79,12 +79,13 @@ app.post('/registration',(req,res)=>{
     })
 })
 
+
 //to get profile
-app.get('/getprofile',(req,res)=>{
-    dataService.getprofile(req.params.mail)
-    .then(
-        result=>{
-            res.status(result.statusCode).json(result)
-        }
-    )
-})
+// app.get('/getprofile',(req,res)=>{
+//     dataService.getprofile()
+//     .then(
+//         result=>{
+//             res.status(result.statusCode).json(result)
+//         }
+//     )
+// })

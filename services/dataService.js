@@ -61,7 +61,7 @@ const login=(mail,password)=>{
  
 
 const registration=(username,mail,qualification,number,place,course,mode)=>{
-    return db.Profile.findOne({mail})
+    return db.User.findOne({number,place})
     .then(student=>{
         if(student){
             return{
@@ -71,7 +71,7 @@ const registration=(username,mail,qualification,number,place,course,mode)=>{
             }
         }
         else{
-            const newStdnt= new db.Profile({
+            const newStdnt= new db.User({
                 mail:mail,
                 username:username,
                 qualification:qualification,
@@ -92,31 +92,37 @@ const registration=(username,mail,qualification,number,place,course,mode)=>{
 
 
 
-const getprofile=()=>{
-    return db.Profile.find()
-    .then((result)=>{
-        if(result){
-            return{
-                status:true,
-                statusCode:200,
-                profiles:result
-            }
-        }
-        else{
-            return{
-                status:false,
-                statusCode:404,
-                message:"Your profile is empty"
-            }
-        }
-    })
-}
+
+
+
+
+
+
+
+// const getprofile=()=>{
+//     return db.Profile.find()
+//     .then((result)=>{
+//         if(result){
+//             return{
+//                 status:true,
+//                 statusCode:200,
+//                 profiles:result
+//             }
+//         }
+//         else{
+//             return{
+//                 status:false,
+//                 statusCode:404,
+//                 message:"Your profile is empty"
+//             }
+//         }
+//     })
+// }
 
 
 
 module.exports={
     register,
     login,
-    registration,
-    getprofile
+    registration
 }
